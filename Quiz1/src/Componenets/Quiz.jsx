@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import styledCom from 'styled-components'
 function Quiz() {
 
     const [i, setI] = useState(0);
     const [correct, setCorrect] = useState(0);
     const [isSubmit, setIsSubmit] = useState(false);
     const [clickCount, setClickCount] = useState(0);
-    const [count,setCount]=useState(1);
+    const [count, setCount] = useState(1);
     const Quizes = [
         {
             "question": " WHat is My Name?",
@@ -44,25 +43,25 @@ function Quiz() {
     ]
     const CheckCorrect = (i, op) => {
         // alert(`Hii you clicke ${i}and ${op}`)
-       // let count=1;
-        if (Quizes[i].correct === op && count!==2) {
+        // let count=1;
+        if (Quizes[i].correct === op && count !== 2) {
             setCorrect(() => correct + 1);
-           setCount(2)
+            setCount(2)
             //console.log(correct)
 
         }
         else {
             setCorrect(() => correct + 0);
-            if(count===2){
-            if(correct<=0){
-                setCorrect(()=>0)
-                if(Quizes[i].correct===op){
-            setCorrect(() => correct + 1);
+            if (count === 2) {
+                if (correct <= 0) {
+                    setCorrect(() => 0)
+                    if (Quizes[i].correct === op) {
+                        setCorrect(() => correct + 1);
 
+                    }
                 }
-            }
-            else
-            setCorrect(() => correct -1);
+                else
+                    setCorrect(() => correct - 1);
 
 
             }
@@ -75,7 +74,7 @@ function Quiz() {
         //  console.log('Correct ans is ', correct);
 
     }
-  
+
     return (
         <div className='w-[40%] h-[30%] pt-[30px] border-[1px] border-black rounded-[5px] px-4  '>
             {i === (Quizes.length)
