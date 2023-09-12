@@ -3,71 +3,48 @@ function Quiz() {
 
     const [i, setI] = useState(0);
     const [correct, setCorrect] = useState(0);
-    const [isSubmit, setIsSubmit] = useState(false);
-    const [clickCount, setClickCount] = useState(0);
-    const [count, setCount] = useState(1);
+ 
+  
     const Quizes = [
         {
-            "question": " WHat is My Name?",
-            "a": "SAtyam",
+            "question": " Formula of methane?",
+            "a": "Ch4",
+            "b": "ch2",
+            "c": "ch3",
+            "d": "not",
+            "correct": "a"
+        },
+        {
+            "question": " What is name of make this website?",
+            "a": "Satyam",
             "b": "Durgesh",
             "c": "Shivam",
             "d": "Adhura",
             "correct": "a"
         },
         {
-            "question": " WHat is My Name 2?",
-            "a": "SAtyam",
-            "b": "Durgesh",
-            "c": "Shivam",
-            "d": "Adhura",
+            "question": " R.D college is good in activity ?",
+            "a": "Never",
+            "b": "Kharab",
+            "c": "Good",
+            "d": "Bad",
             "correct": "a"
         },
         {
-            "question": " WHat is My Name 3?",
-            "a": "SAtyam",
-            "b": "Durgesh",
-            "c": "Shivam",
-            "d": "Adhura",
-            "correct": "a"
-        },
-        {
-            "question": " WHat is My Name 4?",
-            "a": "SAtyam",
-            "b": "Durgesh",
-            "c": "Shivam",
-            "d": "Adhura",
-            "correct": "a"
+            "question": " which person not visit my linked profile ?",
+            "a": "Sunny kr.",
+            "b": "shaurya",
+            "c": "vishal",
+            "d": "all",
+            "correct": "d"
         }
 
     ]
     const CheckCorrect = (i, op) => {
-        // alert(`Hii you clicke ${i}and ${op}`)
-        // let count=1;
-        if (Quizes[i].correct === op && count !== 2) {
+      
+        if (Quizes[i].correct === op) {
             setCorrect(() => correct + 1);
-            setCount(2)
-            //console.log(correct)
-
         }
-        else {
-            setCorrect(() => correct + 0);
-            if (count === 2) {
-                if (correct <= 0) {
-                    setCorrect(() => 0)
-                    if (Quizes[i].correct === op) {
-                        setCorrect(() => correct + 1);
-
-                    }
-                }
-                else
-                    setCorrect(() => correct - 1);
-
-
-            }
-
-        }
-
     }
     const submitHandlerPage = () => {
         setI(() => Quizes.length)
@@ -85,7 +62,7 @@ function Quiz() {
                     <div className=''>
                         <h2>Q.{i + 1} {Quizes[i].question}</h2>
                         <div className='grid grid-cols-2 gap-5'>
-                            <h3 className=' cursor-pointer' onClick={() => CheckCorrect(i, 'a')}> <span className=' inline-block bg-gray-200 rounded-[5px]  p-[5px]  mr-[3px] '>1.</span> {Quizes[i].a}</h3>
+                            <h3 className=' cursor-pointer' onClick={() => CheckCorrect(i, 'a')}  > <span className=' inline-block bg-gray-200 rounded-[5px]  p-[5px]  mr-[3px] '>1.</span> {Quizes[i].a}</h3>
                             <h3 className=' cursor-pointer' onClick={() => CheckCorrect(i, 'b')}> <span className=' inline-block bg-gray-200 rounded-[5px] p-[5px]  mr-[3px]'>2.</span>{Quizes[i].b}</h3>
                             <h3 className=' cursor-pointer' onClick={() => CheckCorrect(i, 'c')}> <span className=' inline-block bg-gray-200 rounded-[5px] p-[5px]  mr-[3px]'>3.</span>{Quizes[i].c}</h3>
                             <h3 className=' cursor-pointer' onClick={() => CheckCorrect(i, 'd')}> <span className=' inline-block bg-gray-200 rounded-[5px] p-[5px]  mr-[3px]'>4.</span>{Quizes[i].d}</h3>
